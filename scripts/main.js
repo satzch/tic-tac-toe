@@ -16,6 +16,9 @@ const checks = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
 const checks_for_cell = [[0, 3, 6], [0, 4], [0, 5, 7], [1, 3], [1, 4, 6, 7],
                 [1, 5], [2, 3, 7], [2, 4], [2, 5, 6]];
 
+// for (let cell of cells) {
+//     cell.classList += " hidden"
+// }
 
 function cellValue(i) {
     return cells[i].innerText
@@ -24,8 +27,10 @@ function cellValue(i) {
 function checkLine(i) {
     let a = checks[i]
 
-    if (cellValue(a[0]) == cellValue(a[1]) && cellValue(a[0]) == cellValue(a[2]))
+    if (cellValue(a[0]) == cellValue(a[1]) && cellValue(a[0]) == cellValue(a[2])) {
+        console.log(a)
         return true
+    }
     
     return false
 }
@@ -54,6 +59,7 @@ for (let cell of cells) {
             cell.innerHTML = ""
         } else {
             cell.innerHTML = `<h2>${turn}</h2>`
+            cell.style = "background-color: #eee"
         }
         
         if (checkWin(cell.id[cell.id.length-1])) {

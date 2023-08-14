@@ -8,7 +8,7 @@
     --board-bgcolor: #fff;
     --primary-color: #fff;
 
-    --board-size: 80vw;
+    --board-size: min( 80vw, 80vh);
     --cell-size: calc(var(--board-size)/3 - 5px);
     /* --cell-size: 40px;*/ /* for checking font-size */
 }
@@ -27,11 +27,25 @@ body {
     background-color: var(--board-bgcolor);
     border-radius: 10px;
     box-shadow: 0 0 5px 5px #333;
-    padding: 5px;
+    position: relative;
+}
+
+.flex-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cells {
+    width: var(--board-size);
+    height: var(--board-size);
+    background-color: var(--board-bgcolor);
     display: grid;
     align-items: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .cell {
@@ -40,9 +54,19 @@ body {
     background-color: var(--primary-color);
     border-radius: 10px;
     box-shadow: 0 0 2px 2px #bbb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: calc(var(--cell-size)/2);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main-menu {
+    /* background-color: blue; */
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
 }

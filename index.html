@@ -7,16 +7,26 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div id="board">
-        <div id="cell0" class="cell"></div>
-        <div id="cell1" class="cell"></div>
-        <div id="cell2" class="cell"></div>
-        <div id="cell3" class="cell"></div>
-        <div id="cell4" class="cell"></div>
-        <div id="cell5" class="cell"></div>
-        <div id="cell6" class="cell"></div>
-        <div id="cell7" class="cell"></div>
-        <div id="cell8" class="cell"></div>
+    <div id="board" class="flex-layout">
+        <div class="main-menu hidden">
+            <h1>Choose Mode</h1>
+            <div class="options">
+                <input type="radio" name="mode" id="pvp">PvP
+                <input type="radio" name="mode" id="cvp">CvP
+            </div>
+            <button>Play</button>
+        </div>
+        <div class="cells">
+        <div id="cell0" class="cell flex-layout"></div>
+        <div id="cell1" class="cell flex-layout"></div>
+        <div id="cell2" class="cell flex-layout"></div>
+        <div id="cell3" class="cell flex-layout"></div>
+        <div id="cell4" class="cell flex-layout"></div>
+        <div id="cell5" class="cell flex-layout"></div>
+        <div id="cell6" class="cell flex-layout"></div>
+        <div id="cell7" class="cell flex-layout"></div>
+        <div id="cell8" class="cell flex-layout"></div>
+    </div>
     </div>
 
     <script src="./scripts/main.js" defer></script>
