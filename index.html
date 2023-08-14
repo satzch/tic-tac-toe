@@ -8,15 +8,21 @@
 </head>
 <body>
     <div id="board" class="flex-layout">
-        <div class="main-menu hidden">
+        
+        <div class="main-menu flex-layout ">
             <h1>Choose Mode</h1>
-            <div class="options">
-                <input type="radio" name="mode" id="pvp">PvP
-                <input type="radio" name="mode" id="cvp">CvP
+            <div class="main-menu_options flex-layout">
+                <span class="option flex-layout">    
+                    PvP
+                </span>
+                <span class="option flex-layout">    
+                    PvC
+                </span>
             </div>
-            <button>Play</button>
+            <button class="play-button">Play</button>
         </div>
-        <div class="cells">
+
+        <div class="cells hidden">
         <div id="cell0" class="cell flex-layout"></div>
         <div id="cell1" class="cell flex-layout"></div>
         <div id="cell2" class="cell flex-layout"></div>
