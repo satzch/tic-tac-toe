@@ -10,7 +10,7 @@
     --primary-color: #fff;
 
     --board-size: min( 90vw, 90vh);
-    --cell-size: calc(var(--board-size)/3 - 5px);
+    --cell-size: calc(var(--board-size)/3 - 6px);
     /* --cell-size: 40px;*/ /* for checking font-size */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -21,8 +21,23 @@ body {
     height: 95vh;
     background-color: var(--bgcolor);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    flex-direction: column;
+}
+
+.info-box {
+    width: calc(var(--board-size) - 10vw);
+    height: 6vh;
+    background-color: white;
+    margin: 5vh 0 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 3.5vh;
 }
 
 #board {
