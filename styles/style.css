@@ -106,7 +106,7 @@ main {
 }
 
 .main-menu_options > .option:hover{
-    background-color: #555;
+    background-color: #555 !important;
 }
 
 .play-button {
