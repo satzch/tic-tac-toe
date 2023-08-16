@@ -3,7 +3,7 @@ const board = document.querySelector("#board");
 const cells = document.getElementsByClassName("cell");
 const infoBox = document.querySelector(".info-box");
 const mainMenu = document.querySelector('.main-menu');
-const playButton = document.querySelector("play-button");
+const playButton = document.querySelector(".play-button");
 
 // console.log(board)
 
