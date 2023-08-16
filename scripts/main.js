@@ -11,7 +11,7 @@ const playButton = document.querySelector(".play-button");
 
 /*********** GLOBALS START ***********/
 
-let GAME_MODE;
+let GAME_MODE = 0;
 let GAME_OVER;
 
 let turn;
@@ -99,12 +99,17 @@ function checkWin(id) {
   return false;
 }
 
-// console.log(mainMenu.children[1].children)
+console.log(mainMenu.children[1].children)
 
 // add event listener to options in the main menu for choosing the game mode
 for (let option of mainMenu.children[1].children) {
   option.addEventListener("click", () => {
+    for (let opt of mainMenu.children[1].children) {
+        if (opt == option) continue
+        opt.style = "background-color: #888"
+    }
     GAME_MODE = option.getAttribute("value");
+    option.style = "background-color: #555"
     // console.log(GAME_MODE)
   });
 }
@@ -115,7 +120,7 @@ playButton.addEventListener("click", () => {
 });
 
 turn = "O";
-infoText = "<h2>TIC TAC TOE</h2>";
+infoText = "<h4>TIC TAC TOE</h4>";
 infoBox.innerHTML = infoText;
 
 function startPvPMode() {
