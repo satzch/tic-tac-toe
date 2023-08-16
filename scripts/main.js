@@ -10,6 +10,7 @@ const playButton = document.querySelector(".play-button");
 // console.log(cells)
 
 let GAME_MODE;
+let GAME_OVER;
 
 // checks contains the cells to check for match
 // there are total 8 possible ways to win, checks contains each
@@ -63,10 +64,11 @@ playButton.addEventListener("click", () => {
     startGame()
 })
 
-turn = "O"
+let turn = "O"
 for (let cell of cells) {
     cell.addEventListener('click', (e) => {
         // console.log(cell)
+        if (GAME_OVER) return
         if (turn == "O") {
             turn = "X"
         } else {
@@ -80,6 +82,8 @@ for (let cell of cells) {
         }
         
         if (checkWin(cell.id[cell.id.length-1])) {
+            GAME_OVER = true
+            infoBox.innerHTML = cell.innerText + " WON"
             console.log(cell.innerText, "won")
         }
     })
