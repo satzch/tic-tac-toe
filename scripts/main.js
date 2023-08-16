@@ -42,6 +42,9 @@ function cellValue(i) {
 
 function checkLine(i) {
     let a = checks[i]
+    if (cellValue(a[0]) == '') {
+        return false
+    }
 
     if (cellValue(a[0]) == cellValue(a[1]) && cellValue(a[0]) == cellValue(a[2])) {
         console.log(a)
@@ -67,8 +70,8 @@ playButton.addEventListener("click", () => {
 })
 
 let turn = "O"
-let infoText = "TIC TAC TOE"
-infoBox.innerText = infoText
+let infoText = "<h2>TIC TAC TOE</h2>"
+infoBox.innerHTML = infoText
 for (let cell of cells) {
     cell.addEventListener('click', (e) => {
         // console.log(cell)
@@ -90,7 +93,7 @@ for (let cell of cells) {
         
         if (checkWin(cell.id[cell.id.length-1])) {
             GAME_OVER = true
-            infoBox.innerHTML = infoText + " WON"
+            infoBox.innerText = infoText + " WON"
             console.log(cell.innerText, "won")
         }
     })
