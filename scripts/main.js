@@ -9,8 +9,14 @@ const playButton = document.querySelector(".play-button");
 
 // console.log(cells)
 
+
+// globals start
+
 let GAME_MODE;
 let GAME_OVER;
+
+let turn;
+let infoText;
 
 // checks contains the cells to check for match
 // there are total 8 possible ways to win, checks contains each
@@ -21,6 +27,8 @@ const checks = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
 // index indicates the cell number
 const checks_for_cell = [[0, 3, 6], [0, 4], [0, 5, 7], [1, 3], [1, 4, 6, 7],
                 [1, 5], [2, 3, 7], [2, 4], [2, 5, 6]];
+
+// globals end
 
 for (let cell of cells) {
     cell.classList.add("hidden")
@@ -65,15 +73,24 @@ function checkWin(id) {
     return false
 }
 
+console.log(mainMenu.children[1].children)
+for (let option of mainMenu.children[1].children) {
+    option.addEventListener('click', ()=>{
+        GAME_MODE = option.getAttribute("value")
+        // console.log(GAME_MODE)
+    })
+}
+
 playButton.addEventListener("click", () => {
     startGame()
 })
 
-let turn = "O"
-let infoText = "<h2>TIC TAC TOE</h2>"
+
+turn = "O"
+infoText = "<h2>TIC TAC TOE</h2>"
 infoBox.innerHTML = infoText
 for (let cell of cells) {
-    cell.addEventListener('click', (e) => {
+    cell.addEventListener('click', () => {
         // console.log(cell)
         if (GAME_OVER) return
         if (turn == "O") {
@@ -84,7 +101,8 @@ for (let cell of cells) {
             infoText = "Player 1"
         }
         if(cell.innerHTML) {
-            cell.innerHTML = ""
+            // cell.innerHTML = ""
+            // cell.style = "background-color: #fff;"
         } else {
             cell.innerHTML = `<h2>${turn}</h2>`
             cell.style = "background-color: #eee"
