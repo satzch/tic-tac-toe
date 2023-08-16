@@ -5,12 +5,11 @@ const infoBox = document.querySelector(".info-box");
 const mainMenu = document.querySelector('.main-menu');
 const playButton = document.querySelector("play-button");
 
-// console.log(board.style)
+// console.log(board)
 
 // console.log(cells)
 
 let GAME_MODE;
-
 
 // checks contains the cells to check for match
 // there are total 8 possible ways to win, checks contains each
@@ -22,10 +21,17 @@ const checks = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
 const checks_for_cell = [[0, 3, 6], [0, 4], [0, 5, 7], [1, 3], [1, 4, 6, 7],
                 [1, 5], [2, 3, 7], [2, 4], [2, 5, 6]];
 
-// for (let cell of cells) {
-//     cell.classList += " hidden"
-// }
+for (let cell of cells) {
+    cell.classList.add("hidden")
+}
 
+function startGame() {
+    mainMenu.classList.add("hidden")
+    for (let cell of cells) {
+        cell.classList.remove("hidden")
+    }
+}
+// startGame()
 
 function cellValue(i) {
     return cells[i].innerText
@@ -52,6 +58,10 @@ function checkWin(id) {
     }
     return false
 }
+
+playButton.addEventListener("click", () => {
+    startGame()
+})
 
 turn = "O"
 for (let cell of cells) {
