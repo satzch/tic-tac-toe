@@ -31,6 +31,8 @@ function startGame() {
     for (let cell of cells) {
         cell.classList.remove("hidden")
     }
+
+    infoBox.innerText = "Player 1's Turn"
 }
 // startGame()
 
@@ -65,25 +67,30 @@ playButton.addEventListener("click", () => {
 })
 
 let turn = "O"
+let infoText = "TIC TAC TOE"
+infoBox.innerText = infoText
 for (let cell of cells) {
     cell.addEventListener('click', (e) => {
         // console.log(cell)
         if (GAME_OVER) return
         if (turn == "O") {
             turn = "X"
+            infoText = "Player 2"
         } else {
             turn = "O"
+            infoText = "Player 1"
         }
         if(cell.innerHTML) {
             cell.innerHTML = ""
         } else {
             cell.innerHTML = `<h2>${turn}</h2>`
             cell.style = "background-color: #eee"
+            infoBox.innerText = infoText + "'s Turn"
         }
         
         if (checkWin(cell.id[cell.id.length-1])) {
             GAME_OVER = true
-            infoBox.innerHTML = cell.innerText + " WON"
+            infoBox.innerHTML = infoText + " WON"
             console.log(cell.innerText, "won")
         }
     })
