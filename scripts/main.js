@@ -1,10 +1,16 @@
 const body = document.querySelector("body");
 const board = document.querySelector("#board");
 const cells = document.getElementsByClassName("cell");
+const infoBox = document.querySelector(".info-box");
+const mainMenu = document.querySelector('.main-menu');
+const playButton = document.querySelector("play-button");
 
 // console.log(board.style)
 
 // console.log(cells)
+
+let GAME_MODE;
+
 
 // checks contains the cells to check for match
 // there are total 8 possible ways to win, checks contains each
@@ -19,6 +25,7 @@ const checks_for_cell = [[0, 3, 6], [0, 4], [0, 5, 7], [1, 3], [1, 4, 6, 7],
 // for (let cell of cells) {
 //     cell.classList += " hidden"
 // }
+
 
 function cellValue(i) {
     return cells[i].innerText
